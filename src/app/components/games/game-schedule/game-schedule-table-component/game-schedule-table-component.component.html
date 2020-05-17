@@ -1,0 +1,19 @@
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Start Time</th>
+            <th>Game</th>
+            <th>Method</th>
+            <th>Send Player message</th>
+            <th>Start link</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let game of games">
+            <tr app-game-schedule-table-row-component [game]="game"></tr>
+        </ng-container>
+        <tr *ngIf="games.length == 0"> <td colspan="7" class="text-center"> No Games</td></tr>
+    </tbody>
+</table>

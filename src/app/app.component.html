@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="d-flex justify-content-center collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/home']">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active" *ngIf="logedIn">
+        <a class="nav-link" [routerLink]="['/user-game-list']">My Games List <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active" *ngIf="logedIn">
+        <a class="nav-link" [routerLink]="['/MyFriends']">My Friends <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active" *ngIf="logedIn">
+        <a class="nav-link" [routerLink]="['/game-schedule']">Schedule <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a *ngIf="logedIn" class="nav-link" [routerLink]="['/home']" (click)="logedIn=false">LogOut <span class="sr-only">(current)</span></a>
+        <a *ngIf="!logedIn" class="nav-link" [routerLink]="['/user-menu']" (click)="logedIn=true">Login <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<router-outlet></router-outlet>

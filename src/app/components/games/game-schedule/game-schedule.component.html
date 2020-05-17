@@ -1,0 +1,19 @@
+<div class="container mt-5">
+    <h1>Games We Have</h1>  
+    <p class="lead">Game Schedule</p>
+    <div class="m-auto mt-5">
+        <p>Upcoming Games</p>
+        <div class="ml-2 custom-control custom-checkbox" *ngFor="let singleGame of userGameList">
+            <input type="checkbox" class="custom-control-input" [id]= "singleGame.id">
+            <label class="custom-control-label" [for]= "singleGame.id">{{ singleGame.game }}</label>
+        </div>
+
+        <app-game-schedule-table-component [games]="games"></app-game-schedule-table-component>
+
+        <div class="mt-5">
+            <button type="button" class="btn btn-lg mr-3 btn-secondary" *ngIf="!filterActive" (click)="filter()">Search for new Games</button>
+            <button type="button" class="btn btn-lg mr-3 btn-primary" *ngIf="filterActive" (click)="filter()">All games</button>
+            <button type="button" class="btn btn-secondary btn-lg ml-3" [routerLink]="['/user-schedule-preference']">Set Play preferences</button>
+        </div>
+    </div>
+</div>

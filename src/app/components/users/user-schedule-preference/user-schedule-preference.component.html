@@ -1,0 +1,54 @@
+<div class="container mt-5">
+  <h1>Games We Have</h1>
+  <p class="lead">Game Schedule Preference</p>
+
+  <form [formGroup]="form" (ngSubmit)="save()" *ngIf="form">
+
+    
+    <div class="form-group row">
+      <label for="playDate" class="col-sm-4 col-form-label">Which date would you like to play?</label>
+      <div class="col-sm-2 d-flex">
+        <input class="form-control text-center" placeholder=" /  / "  formControlName="playDate" name="dp" ngbDatepicker
+          #d="ngbDatepicker">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+            <i class="fa fa-calendar"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group d-flex justify-content-start align-items-center">
+      <label for="playTimeStart" class="col-sm-4 col-form-label pl-0">What time range would you be available?</label>
+
+      <div class="col-sm-2">
+        <ngb-timepicker class="timepicker" formControlName="playTimeStart" [meridian]="true"></ngb-timepicker>
+      </div>
+
+      <label for="playTimeEnd" class="col-sm-1" >until</label>
+
+      <div class="col-sm-2">
+        <ngb-timepicker class="timepicker" formControlName="playTimeEnd" [meridian]="true"></ngb-timepicker>
+      </div>
+    </div>
+
+    <div class="from-check custom-control custom-radio">
+      <input class="form-check-input custom-control-input" type="radio"  id="newPeople1" value="true" formControlName="newPeople">
+      <label class="form-check-label custom-control-label" for="newPeople1">
+        Yes, Id like to meet new people online
+      </label>
+    </div>
+    <div class="from-check custom-control custom-radio">
+      <input class="form-check-input custom-control-input" type="radio"  id="newPeople2" value="false" formControlName="newPeople">
+      <label class="form-check-label custom-control-label" for="newPeople2">
+        No, Id like to just connect with people I know
+      </label>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3" [disabled]="!form.valid">submit</button>
+  </form>
+
+
+
+
+</div>
